@@ -1,10 +1,19 @@
 from nptdms import TdmsFile
 
-tdms_file = TdmsFile("path_to_file.tdms")
-channel = tdms_file.object('Group', 'Channel1')
-data = channel.data
-time = channel.time_track()
+tdms_file = TdmsFile("data1.tdms")
+print tdms_file.groups()
+print tdms_file.object()
+#channel = tdms_file.object('Group', 'Channel1')
+#data = channel.data
+#time = channel.time_track()
 # do stuff with data
 
+test = tdms_file.as_dataframe()
+print test
 
-https://nptdms.readthedocs.io/en/latest/
+data = tdms_file.channel_data('U-Remote','dt')
+print data
+
+channel = tdms_file.group_channels('U-Remote')
+#print channel
+#https://nptdms.readthedocs.io/en/latest/
